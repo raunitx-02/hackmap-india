@@ -9,14 +9,10 @@ import { useEffect } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from './firebase/config'
 
-const Home = lazy(() => import('./pages/Home'))
-const Discover = lazy(() => import('./pages/Discover'))
-const HackathonDetail = lazy(() => import('./pages/HackathonDetail'))
-const MapView = lazy(() => import('./pages/MapView'))
-const TeamFinder = lazy(() => import('./pages/TeamFinder'))
-const Dashboard = lazy(() => import('./pages/Dashboard'))
-const Organize = lazy(() => import('./pages/Organize'))
-const Leaderboard = lazy(() => import('./pages/Leaderboard'))
+const Home = lazy(() => import('./pages/HomePage'))
+const Discover = lazy(() => import('./pages/ExplorePage'))
+const HackathonDetail = lazy(() => import('./pages/HackathonDetailPage'))
+const PaymentSuccess = lazy(() => import('./pages/PaymentSuccessPage'))
 
 function App() {
   const { setUser } = useAuthStore()
@@ -37,7 +33,7 @@ function App() {
             style: {
               background: '#13131F',
               color: '#F1F0F5',
-              border: '1px solid rgba(255,255,255,0.08)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
             },
           }}
         />
@@ -47,11 +43,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/discover" element={<Discover />} />
             <Route path="/hackathon/:id" element={<HackathonDetail />} />
-            <Route path="/map" element={<MapView />} />
-            <Route path="/teams" element={<TeamFinder />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/organize" element={<Organize />} />
-            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/payment-success" element={<PaymentSuccess />} />
           </Routes>
         </Suspense>
         <Footer />
